@@ -1,0 +1,21 @@
+# React Native in ES6 with webpack and Babel
+
+It's possible to write React Native apps in ES6+ using `babel-loader` and `webpack`.
+
+Basically you need to compile everything to `index.ios.js` file, which is then transformed by `react-native`. Also, to stop webpack from trying to load native (Objective-C) components, you need to define them all as `externals` and set `libraryTarget: 'commonjs'` in webpack config, this way webpack will not resolve `require` to native components.
+
+Here's a regexp to match all native components. Feel free to add more if I forgot any, webpack will error if not listed component will be used.
+
+```javascript
+/React|ActivityIndicatorIOS|DatePickerIOS|Image|ListView|MapView|NavigatorIOS|PickerIOS|Navigator|ScrollView|SliderIOS|SwitchIOS|TabBarIOS|Text|TextInput|TouchableHighlight|TouchableOpacity|TouchableWithoutFeedback|View|WebView|AlertIOS|Animation|AppRegistry|AppStateIOS|AsyncStorage|CameraRoll|InteractionManager|LinkingIOS|LayoutAnimation|NetInfo|PixelRatio|PushNotificationIOS|PanResponder|StatusBarIOS|StyleSheet|VibrationIOS|RCTDeviceEventEmitter|NativeModules|LinkedStateMixin|cloneWithProps|update/
+```
+
+Check `webpack.config.js` for build configuration.
+
+## Usage
+
+Run in the terminal `webpack --config webpack.config.js`, open another tab and run `react-native start`.
+
+## Known limitations
+
+- No support for ES6 classes. There's no `React.Component` or any other extendable base class.

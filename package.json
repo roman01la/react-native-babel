@@ -1,0 +1,23 @@
+{
+  "name": "react-native-babel",
+  "version": "1.0.0",
+  "description": "Configuration to build React Native apps with ES6 using webpack and Babel",
+  "author": "Roman Liutikov <roman01la@romanliutikov.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "react-native start",
+    "webpack": "webpack --config webpack.config.js --colors --progress"
+  },
+  "dependencies": {
+    "react-native": "^0.3.0"
+  },
+  "devDependencies": {
+    "anybar-webpack": "^1.0.4",
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "babel-runtime": "^5.0.0-beta1",
+    "eslint": "^0.17.1",
+    "eslint-plugin-react": "^1.6.1",
+    "webpack": "^1.7.3"
+  }
+}
