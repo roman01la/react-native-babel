@@ -2,6 +2,8 @@
 
 It's possible to write React Native apps in ES6+ using `babel-loader` and `webpack`.
 
+Check better approach using `DependencyGraph` module: [dep-graph](https://github.com/roman01la/react-native-babel/tree/dep-graph).
+
 Basically you need to compile everything to `index.ios.js` file, which is then transformed by `react-native`. Also, to stop webpack from trying to load native (Objective-C) components, you need to define them all as `externals` and set `libraryTarget: 'commonjs'` in webpack config, this way webpack will not resolve `require` to native components.
 
 Here's a regexp to match all native components. Feel free to add more if I forgot any, webpack will error if not listed component will be used.
