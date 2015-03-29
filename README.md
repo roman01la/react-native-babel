@@ -4,17 +4,13 @@ It's possible to write React Native apps in ES6+ using `babel-loader` and `webpa
 
 Basically you need to compile everything to `index.ios.js` file, which is then transformed by `react-native`. Also, to stop webpack from trying to load native (Objective-C) components, you need to define them all as `externals` and set `libraryTarget: 'commonjs'` in webpack config, this way webpack will not resolve `require` to native components.
 
-Here's a regexp to match all native components. Feel free to add more if I forgot any, webpack will error if not listed component will be used.
+This example use `DependencyGraph` module from React Native to load all native modules into webpack config. It requires additional helper (`wepack-watch.js`), however it will make sure webpack is always aware of all native modules, so you don't need to keep the list up-to-date manually.
 
-```javascript
-/React|ActivityIndicatorIOS|DatePickerIOS|Image|ListView|MapView|NavigatorIOS|PickerIOS|Navigator|ScrollView|SliderIOS|SwitchIOS|TabBarIOS|Text|TextInput|TouchableHighlight|TouchableOpacity|TouchableWithoutFeedback|View|WebView|AlertIOS|Animation|AppRegistry|AppStateIOS|AsyncStorage|CameraRoll|InteractionManager|LinkingIOS|LayoutAnimation|NetInfo|PixelRatio|PushNotificationIOS|PanResponder|StatusBarIOS|StyleSheet|VibrationIOS|RCTDeviceEventEmitter|NativeModules|LinkedStateMixin|cloneWithProps|update/
-```
-
-Check `webpack.config.js` for build configuration.
+Check `webpack.config.js` for build configuration and `webpack-watch.js` to see how `DependencyGraph` module works.
 
 ## Usage
 
-Run in the terminal `webpack --config webpack.config.js`, open another tab and run `react-native start`.
+Run in the terminal `node webpack-watch` (this will load native modules for the first time, so this may take a while), open another tab and run `react-native start`.
 
 ## Known limitations
 
