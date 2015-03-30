@@ -16,6 +16,7 @@ Check `webpack.config.js` for build configuration.
 
 ## Usage
 
+Before running the project, change code location in [`iOS/AppDelegate.m`](https://github.com/roman01la/react-native-babel/blob/master/iOS/AppDelegate.m#L29) to `localhost` to run on iOS Simulator or to your computer's IP address to run on device.
 Run in the terminal `webpack --config webpack.config.js`, open another tab and run `react-native start`.
 
 ## Known limitations
