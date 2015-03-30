@@ -10,6 +10,7 @@ Check `webpack.config.js` for build configuration and `webpack-watch.js` to see 
 
 ## Usage
 
+Before running the project, change code location in [`iOS/AppDelegate.m`](https://github.com/roman01la/react-native-babel/blob/dep-graph/iOS/AppDelegate.m#L29) to `localhost` to run on iOS Simulator or to your computer's IP address to run on device.
 Run in the terminal `node webpack-watch` (this will load native modules for the first time, so this may take a while), open another tab and run `react-native start`.
 
 ## Known limitations
