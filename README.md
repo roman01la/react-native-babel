@@ -6,11 +6,7 @@ Check better approach using `DependencyGraph` module: [dep-graph](https://github
 
 Basically you need to compile everything to `index.ios.js` file, which is then transformed by `react-native`. Also, to stop webpack from trying to load native (Objective-C) components, you need to define them all as `externals` and set `libraryTarget: 'commonjs'` in webpack config, this way webpack will not resolve `require` to native components.
 
-Here's a regexp to match all native components. Feel free to add more if I forgot any, webpack will error if not listed component will be used.
-
-```javascript
-/image\!|React|ActivityIndicatorIOS|DatePickerIOS|Image|ListView|MapView|NavigatorIOS|PickerIOS|Navigator|ScrollView|SliderIOS|SwitchIOS|TabBarIOS|Text|TextInput|TouchableHighlight|TouchableOpacity|TouchableWithoutFeedback|View|WebView|AlertIOS|Animation|AppRegistry|AppStateIOS|AsyncStorage|CameraRoll|InteractionManager|LinkingIOS|LayoutAnimation|NetInfo|PixelRatio|PushNotificationIOS|PanResponder|StatusBarIOS|StyleSheet|VibrationIOS|RCTDeviceEventEmitter|NativeModules|LinkedStateMixin|cloneWithProps|update/
-```
+Check [`ignore-modules.js`](ignore-modules.js) for the regexp to match all native components, it is extracted using approach described in [dep-graph](https://github.com/roman01la/react-native-babel/tree/dep-graph) branch.
 
 Check `webpack.config.js` for build configuration.
 
