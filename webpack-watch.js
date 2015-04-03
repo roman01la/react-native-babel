@@ -47,6 +47,7 @@ depGraph._loading
   })
   .then(function (deps) {
 
+    deps.push('image\\!');
     config.externals = config.externals || [];
     config.externals.push(new RegExp(deps.join('|')));
 
