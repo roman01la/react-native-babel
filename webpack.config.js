@@ -16,9 +16,7 @@ module.exports = {
         filename: 'index.ios.js',
         libraryTarget: 'commonjs'
     },
-    externals: [
-      /image\!|React|ActivityIndicatorIOS|DatePickerIOS|Image|ListView|MapView|NavigatorIOS|PickerIOS|Navigator|ScrollView|SliderIOS|SwitchIOS|TabBarIOS|Text|TextInput|TouchableHighlight|TouchableOpacity|TouchableWithoutFeedback|View|WebView|AlertIOS|Animation|AppRegistry|AppStateIOS|AsyncStorage|CameraRoll|InteractionManager|LinkingIOS|LayoutAnimation|NetInfo|PixelRatio|PushNotificationIOS|PanResponder|StatusBarIOS|StyleSheet|VibrationIOS|RCTDeviceEventEmitter|NativeModules|LinkedStateMixin|cloneWithProps|update/
-    ],
+    externals: [require('./ignore-modules')],
     resolve: {
         extensions: ['', '.js', '.jsx', '.es6']
     },
