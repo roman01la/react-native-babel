@@ -1,3 +1,4 @@
 node_modules
 .DS_Store
 index.ios.js
+npm-debug.log
