@@ -27,7 +27,6 @@ var blacklistRE = blacklist(false);
 var depGraph = new DependencyGraph({
 
   roots: [reactNativeRoot],
-  assetRoots: [reactNativeRoot],
   ignoreFilePath: function (filepath) {
 
     return filepath.indexOf('__tests__') !== -1 ||
