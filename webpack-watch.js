@@ -6,8 +6,8 @@ var webpack = require('webpack'),
 
 var outputOptions = {
 
-	cached: false,
-	cachedAssets: false,
+  cached: false,
+  cachedAssets: false,
   colors: require('supports-color'),
   exclude: ['node_modules']
 };
@@ -54,14 +54,14 @@ depGraph._loading
       if (err) {
 
         console.error(err.stack || err);
-    		if (err.details) console.error(err.details);
+        if (err.details) console.error(err.details);
       }
       else {
 
         if (stats.hash !== lastHash) {
 
           lastHash = stats.hash;
-      		process.stdout.write(stats.toString(outputOptions) + '\n');
+          process.stdout.write(stats.toString(outputOptions) + '\n');
         }
       }
     });
