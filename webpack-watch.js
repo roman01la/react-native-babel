@@ -45,10 +45,9 @@ depGraph._loading
     return deps.map(function (dep) { return dep.id; });
   })
   .then(function (deps) {
-
     deps.push('image\\!');
     config.externals = config.externals || [];
-    config.externals.push(new RegExp(deps.join('|')));
+    config.externals = config.externals.concat(deps);
 
     webpack(config).watch(300, function (err, stats) {
 
