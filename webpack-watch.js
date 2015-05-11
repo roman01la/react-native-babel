@@ -6,8 +6,8 @@ var webpack = require('webpack'),
 
 var outputOptions = {
 
-	cached: false,
-	cachedAssets: false,
+  cached: false,
+  cachedAssets: false,
   colors: require('supports-color'),
   exclude: ['node_modules']
 };
@@ -27,7 +27,6 @@ var blacklistRE = blacklist(false);
 var depGraph = new DependencyGraph({
 
   roots: [reactNativeRoot],
-  assetRoots: [reactNativeRoot],
   ignoreFilePath: function (filepath) {
 
     return filepath.indexOf('__tests__') !== -1 ||
@@ -46,24 +45,23 @@ depGraph._loading
     return deps.map(function (dep) { return dep.id; });
   })
   .then(function (deps) {
-
     deps.push('image\\!');
     config.externals = config.externals || [];
-    config.externals.push(new RegExp(deps.join('|')));
+    config.externals = config.externals.concat(deps);
 
     webpack(config).watch(300, function (err, stats) {
 
       if (err) {
 
         console.error(err.stack || err);
-    		if (err.details) console.error(err.details);
+        if (err.details) console.error(err.details);
       }
       else {
 
         if (stats.hash !== lastHash) {
 
           lastHash = stats.hash;
-      		process.stdout.write(stats.toString(outputOptions) + '\n');
+          process.stdout.write(stats.toString(outputOptions) + '\n');
         }
       }
     });
