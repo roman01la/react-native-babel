@@ -32,7 +32,8 @@ var depGraph = new DependencyGraph({
     return filepath.indexOf('__tests__') !== -1 ||
       blacklistRE.test(filepath);
   },
-  fileWatcher: { on: function() {} }
+  fileWatcher: { on: function() {} },
+  assetExts: ['png', 'jpg']
 });
 
 depGraph._loading
