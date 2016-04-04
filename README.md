@@ -1,5 +1,7 @@
 # React Native in ES6 with webpack and Babel
 
+## DEPRECATED!
+
 It's possible to write React Native apps in ES6+ using `babel-loader` and `webpack`.
 
 Check better approach using `DependencyGraph` module: [dep-graph](https://github.com/roman01la/react-native-babel/tree/dep-graph).
